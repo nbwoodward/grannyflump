@@ -11,25 +11,41 @@
 </template>
 
 <script>
-import { getHeader, getGmaName, getGpaName } from '@/data'
+import { getHeader, getRandomNames, decodeString} from '@/data'
 export default {
   data() {
     return {
       header: '',
       gma: '',
       gpa: '',
+      url: '2o8odo7o2o9o9oc',
     }
   },
   mounted() {
-    this.getGranny()
+    // this.getGranny()
+    this.getGrannyFromString()
+
   },
   methods: {
+    getGrannyFromString(){
+      const [gma, gpa] = decodeString(this.url)
+
+      this.gma = gma
+      this.gpa = gpa
+    },
     getGranny() {
       this.header = getHeader()
 
-      this.gma = getGmaName()
-      this.gpa = getGpaName()
+      const [gma, gpa, encoded] = getRandomNames()
+
+      this.gma = gma
+      this.gpa = gpa
+
+      this.goToRoute(encoded)
     },
+    goToRoute(encoded){
+      console.log(encoded)
+    }
   },
 }
 </script>
