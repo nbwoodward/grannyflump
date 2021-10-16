@@ -1,6 +1,7 @@
 <template>
   <div id="granny-flump">
-    <div id="header">{{ header }}</div>
+    <h2 id="slogan">Only the best grandparent names ever.</h2>
+    <div id="slogan">{{ slogan }}</div>
     <div id="names">
       <div id="gma">{{ gma }}</div>
       <div id="and">and</div>
@@ -11,11 +12,11 @@
 </template>
 
 <script>
-import { getHeader, getRandomNames, decodeString} from '@/data'
+import { getSlogan, getRandomNames, decodeString} from '@/data'
 export default {
   data() {
     return {
-      header: '',
+      slogan: '',
       gma: '',
       gpa: '',
       url: '',
@@ -30,7 +31,7 @@ export default {
   },
   methods: {
     getGrannyFromRoute(){
-      this.header = getHeader()
+      this.slogan = getSlogan()
 
       const encoded = this.$route.params?.encoded
 
@@ -44,7 +45,7 @@ export default {
       this.gpa = gpa
     },
     getGranny() {
-      this.header = getHeader()
+      this.slogan = getSlogan()
 
       const [gma, gpa, encoded] = getRandomNames()
 
@@ -61,7 +62,10 @@ export default {
 }
 </script>
 <style scoped>
-#header {
+#header{
+  margin-bottom:20px;
+}
+#slogan {
   margin-bottom: 10px;
   font-size: 16pt;
 }

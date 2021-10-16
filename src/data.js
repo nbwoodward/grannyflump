@@ -1,12 +1,13 @@
-export const headers = [
-  "You're new grandparents! Your wonderful grandchildren will call you:",
-  "You've always wanted to be:",
+export const slogans = [
+  "We're new grandparents! Our wonderful grandchildren shall call us:",
+  "Oh honey, I've just always wanted to be:",
   'The best grandparents in the world are:',
-  'Hey everyone, we are now known as:',
+  'I\'m ready to tell the world that we are now known as:',
+  'Power Grandparents:',
 ]
 
-export function getHeader() {
-  return headers[getIndFromArray(headers)]
+export function getSlogan() {
+  return slogans[getIndFromArray(slogans)]
 }
 
 const gpaNames = [
