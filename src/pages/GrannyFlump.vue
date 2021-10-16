@@ -7,7 +7,7 @@
       <div id="and">and</div>
       <div id="gpa">{{ gpa }}</div>
     </div>
-    <button @click="getGranny()">Maybe a different name</button>
+    <button @click="getGranny()">New Names Please</button>
   </div>
 </template>
 
