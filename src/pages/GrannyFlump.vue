@@ -18,17 +18,27 @@ export default {
       header: '',
       gma: '',
       gpa: '',
-      url: '2o8odo7o2o9o9oc',
+      url: '',
     }
   },
   mounted() {
-    // this.getGranny()
-    this.getGrannyFromString()
-
+    if (this.$route.params?.encoded){
+      this.getGrannyFromRoute()
+    } else {
+      this.getGranny()
+    }
   },
   methods: {
-    getGrannyFromString(){
-      const [gma, gpa] = decodeString(this.url)
+    getGrannyFromRoute(){
+      this.header = getHeader()
+
+      const encoded = this.$route.params?.encoded
+
+      if (!encoded){
+        this.getGranny()
+      }
+
+      const [gma, gpa] = decodeString(encoded)
 
       this.gma = gma
       this.gpa = gpa
@@ -44,6 +54,7 @@ export default {
       this.goToRoute(encoded)
     },
     goToRoute(encoded){
+      this.$router.push(`/${encoded}`)
       console.log(encoded)
     }
   },

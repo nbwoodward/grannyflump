@@ -1,19 +1,8 @@
 <template>
   <div id="app">
-    <GrannyFlump/>
+    <router-view/>
   </div>
 </template>
-
-<script>
-import GrannyFlump from './components/GrannyFlump.vue'
-
-export default {
-  name: 'App',
-  components: {
-    GrannyFlump
-  }
-}
-</script>
 
 <style>
 #app {
