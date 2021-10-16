@@ -2,7 +2,7 @@ export const headers = [
   "You're new grandparents! Your wonderful grandchildren will call you:",
   "You've always wanted to be:",
   'The best grandparents in the world are:',
-  'Hey everyone, we are know known as:',
+  'Hey everyone, we are now known as:',
 ]
 
 const gpaNames = [
