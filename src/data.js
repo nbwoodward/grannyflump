@@ -99,7 +99,6 @@ const termsOfEndearment = [
   'nuft',
   'tuft',
   'hackles',
-  'trump',
 ]
 
 export function getRandomNames(){
@@ -115,10 +114,7 @@ export function getRandomNames(){
   const gpa3 = getIndFromArray(termsOfEndearment)
 
   const encoded = getEncodedString(numGmaNames, gma1, gma2, gma3, numGpaNames,gpa1,gpa2,gpa3)
-
-  const gmaName = getGmaName(numGmaNames, gma1, gma2, gma3)
-  const gpaName = getGpaName(numGpaNames, gpa1, gpa2, gpa3)
-  return [gmaName, gpaName, encoded]
+  return [encoded]
 }
 
 export function getGmaName(numNames, gma1,gma2,gma3) {
@@ -170,11 +166,11 @@ return [
     ntos(gpa1),
     ntos(gpa2),
     ntos(gpa3)
-  ].join('o')
+  ].join('g')
 }
 
 export function decodeString(encoded){
-  const [a, b, c, d, e, f,g,h] = encoded.split('o')
+  const [a, b, c, d, e, f,g,h] = encoded.split('g')
 
     const numGmaNames = ston(a)
     const gma1 = ston(b)
@@ -188,8 +184,6 @@ export function decodeString(encoded){
   const gmaName = getGmaName(numGmaNames, gma1, gma2, gma3)
   const gpaName = getGpaName(numGpaNames, gpa1, gpa2, gpa3)
   return [gmaName, gpaName]
-
-
 }
 
 function ntos(num){

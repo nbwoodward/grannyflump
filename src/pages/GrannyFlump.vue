@@ -17,46 +17,43 @@ export default {
   data() {
     return {
       slogan: '',
-      gma: '',
-      gpa: '',
       url: '',
     }
   },
   mounted() {
-    if (this.$route.params?.encoded){
-      this.getGrannyFromRoute()
-    } else {
+    if (!this.$route.params?.encoded){
       this.getGranny()
+    } else if (!this.slogan) {
+      this.slogan = getSlogan()
+    }
+  },
+  computed: {
+    encoded() {
+      return this.$route.params?.encoded
+    },
+    names() {
+      if (!this.encoded) {
+        return ["", ""]
+      }
+
+      return decodeString(this.encoded)
+    },
+    gma() {
+      return this.names[0]
+    },
+    gpa() {
+      return this.names[1]
     }
   },
   methods: {
-    getGrannyFromRoute(){
-      this.slogan = getSlogan()
-
-      const encoded = this.$route.params?.encoded
-
-      if (!encoded){
-        this.getGranny()
-      }
-
-      const [gma, gpa] = decodeString(encoded)
-
-      this.gma = gma
-      this.gpa = gpa
-    },
     getGranny() {
       this.slogan = getSlogan()
 
-      const [gma, gpa, encoded] = getRandomNames()
-
-      this.gma = gma
-      this.gpa = gpa
-
+      const [encoded] = getRandomNames()
       this.goToRoute(encoded)
     },
     goToRoute(encoded){
       this.$router.push(`/${encoded}`)
-      console.log(encoded)
     }
   },
 }
