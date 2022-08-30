@@ -1,3 +1,5 @@
+const JOIN_CHAR = 'g'
+
 export const slogans = [
   "We're new grandparents! Our wonderful grandchildren shall call us:",
   "Oh honey, I've just always wanted to be:",
@@ -166,11 +168,11 @@ return [
     ntos(gpa1),
     ntos(gpa2),
     ntos(gpa3)
-  ].join('g')
+  ].join(JOIN_CHAR)
 }
 
 export function decodeString(encoded){
-  const [a, b, c, d, e, f, g, h] = encoded.split('g')
+  const [a, b, c, d, e, f, g, h] = encoded.split(JOIN_CHAR)
 
     const numGmaNames = ston(a)
     const gma1 = ston(b)
