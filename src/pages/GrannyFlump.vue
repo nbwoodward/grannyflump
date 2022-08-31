@@ -1,13 +1,15 @@
 <template>
   <div id="granny-flump">
-    <h2 id="slogan">Only the best grandparent names ever.</h2>
-    <div id="slogan">{{ slogan }}</div>
-    <div id="names">
-      <div id="gma">{{ gma }}</div>
-      <div id="and">and</div>
-      <div id="gpa">{{ gpa }}</div>
+    <h2 id="header">Only the best grandparent names ever.</h2>
+    <div id="display">
+      <div id="slogan">{{ slogan }}</div>
+      <div id="names">
+        <div id="gma">{{ gma }}</div>
+        <div id="and">and</div>
+        <div id="gpa">{{ gpa }}</div>
+      </div>
+      <button class="button" @click="getGranny()">New Names Please</button>
     </div>
-    <button @click="getGranny()">New Names Please</button>
   </div>
 </template>
 
@@ -65,6 +67,25 @@ export default {
 #slogan {
   margin-bottom: 10px;
   font-size: 16pt;
+}
+#display {
+  padding: 40px;
+  border: 1px solid #eee;
+  margin: auto;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 400px;
+  border-radius: 20px;
+  margin-top: 15px;
+  background-color: #ffd491;
+}
+.button{
+  margin:auto;
+  max-width:300px;
+  margin-bottom:0;
+  margin-top:auto;
 }
 #gma,
 #gpa {
