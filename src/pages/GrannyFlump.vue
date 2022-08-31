@@ -10,6 +10,10 @@
       </div>
       <button class="button" @click="getGranny()">New Names Please</button>
     </div>
+    <div id="share">
+      <a @click="share">Share -&gt;</a>
+      <div id="copied" v-if="showCopied">Link copied to clipboard!</div>
+    </div>
   </div>
 </template>
 
@@ -20,6 +24,7 @@ export default {
     return {
       slogan: '',
       url: '',
+      showCopied: false,
     }
   },
   mounted() {
@@ -56,6 +61,14 @@ export default {
     },
     goToRoute(encoded){
       this.$router.push(`/${encoded}`)
+    },
+    async share() {
+      await navigator.clipboard.writeText(window.location.href);
+
+      this.showCopied = true;
+      setTimeout( () => {
+        this.showCopied = false;
+      }, 750)
     }
   },
 }
@@ -86,6 +99,11 @@ export default {
   max-width:300px;
   margin-bottom:0;
   margin-top:auto;
+}
+#share a {
+  cursor: pointer;
+  display:block;
+  padding:5px 10px;
 }
 #gma,
 #gpa {
