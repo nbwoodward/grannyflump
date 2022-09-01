@@ -36,6 +36,7 @@ export default {
   },
   computed: {
     encoded() {
+      console.log(this.$route.params?.encoded)
       return this.$route.params?.encoded
     },
     names() {
@@ -46,6 +47,7 @@ export default {
       return decodeString(this.encoded)
     },
     gma() {
+      console.log(this.names)
       return this.names[0]
     },
     gpa() {
