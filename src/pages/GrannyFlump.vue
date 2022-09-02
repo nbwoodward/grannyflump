@@ -85,7 +85,7 @@ export default {
   padding: 40px;
   border: 1px solid #eee;
   margin: auto;
-  min-height: 300px;
+  min-height: 250px;
   display: flex;
   flex-direction: column;
   flex: 1;
