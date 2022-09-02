@@ -14,6 +14,11 @@
       <a @click="share">Share -&gt;</a>
       <div id="copied" v-if="showCopied">Link copied to clipboard!</div>
     </div>
+    <div id="others">
+      Other stupid stuff: <br/>
+      <a target="_blank" href="https://honeyflump.com">Honey Flump</a> <br/>
+      <a target="_blank" href="https://catfact.xyz">Cat Facts</a> <br/>
+    </div>
   </div>
 </template>
 
